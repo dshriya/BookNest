@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch((err) => console.error('MongoDB connection error:', err));
 
 // Routes will be added here
-// app.use('/api/books', require('./routes/books'));
+app.use('/api/books', require('./routes/books'));
 // app.use('/api/collections', require('./routes/collections'));
 app.use('/api/testtable', require('./routes/testTable'));
 
