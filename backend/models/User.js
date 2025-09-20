@@ -18,6 +18,17 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  settings: {
+    theme: {
+      type: String,
+      enum: ['light', 'dark'],
+      default: 'light'
+    },
+    language: {
+      type: String,
+      default: 'en'
+    }
+  },
   collections: [{
     name: {
       type: String,

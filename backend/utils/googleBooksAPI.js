@@ -1,6 +1,4 @@
 const axios = require('axios');
-
-const axios = require('axios');
 require('dotenv').config();
 
 const GOOGLE_BOOKS_API_URL = 'https://www.googleapis.com/books/v1/volumes';
