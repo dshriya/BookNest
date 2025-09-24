@@ -18,28 +18,30 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route 
-            path="/*" 
-            element={
-              <ProtectedRoute>
-                <>
-                  <Header />
-                  <Routes>
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/search" element={<Search />} />
-                    <Route path="/book/:id" element={<BookView />} />
-                    <Route path="/library" element={<Library />} />
-                    <Route path="/settings" element={<Settings />} />
-                    <Route path="/" element={<Navigate to="/home" replace />} />
-                  </Routes>
-                </>
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+        <div className="app-container">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route 
+              path="/*" 
+              element={
+                <ProtectedRoute>
+                  <>
+                    <Header />
+                    <Routes>
+                      <Route path="/home" element={<Home />} />
+                      <Route path="/search" element={<Search />} />
+                      <Route path="/book/:id" element={<BookView />} />
+                      <Route path="/library" element={<Library />} />
+                      <Route path="/settings" element={<Settings />} />
+                      <Route path="/" element={<Navigate to="/home" replace />} />
+                    </Routes>
+                  </>
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </div>
       </Router>
     </ThemeProvider>
   );
