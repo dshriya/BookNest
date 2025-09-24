@@ -125,20 +125,13 @@ router.get('/status/:bookId', auth, async (req, res) => {
 router.post('/like', auth, async (req, res) => {
   try {
     if (!req.user?._id) {
-      console.error('No user ID in request');
       return res.status(401).json({ success: false, message: 'User ID is required' });
     }
-
-    console.log('Like request received:', {
-      userId: req.user._id,
-      bookId: req.body.bookId
-    });
 
     const { bookId, volumeInfo } = req.body;
     const sanitizedVolumeInfo = sanitizeVolumeInfo(volumeInfo);
 
     let library = await Library.findOne({ userId: req.user._id, bookId });
-    console.log('Existing library entry:', library);
 
     if (library) {
       library.isLiked = !library.isLiked;
